@@ -2,7 +2,6 @@ function openForm() {
     document.getElementById("page").style.display="block";
 
 }
-var ar = new array();
 function myfunction() {
  //document.getElementById("formcontainer").style.display="block";
 
