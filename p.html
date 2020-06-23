@@ -29,26 +29,26 @@
     <br>
     <div class="addForm" id="addForm">
         <button type="button" class="btn" onclick="closeAddForm()">Close</button>
-        <form id="form1" method="POST" action="http://dummy.restapiexample.com/api/v1/employees">
+        <form id="form1" method="POST" action="http://dummy.restapiexample.com/api/v1/create">
             <label for="id">
             Id:
             </label>
-            <input type="number" id="id" placeholder="id" name="employe_id" required>
+            <input type="number" id="id" placeholder="id" name="id" required>
             <br>
             <label for="name"> 
             Name:
             </label>
-            <input type="text" id="name" placeholder="full name" name="employe_name" required>
+            <input type="text" id="name" placeholder="full name" name="name" required>
             <br>
             <label for="age">
               Age:
           </label>
-            <input type="number" id="age" placeholder="age(years)" name="employe_age" required>
+            <input type="number" id="age" placeholder="age(years)" name="age" required>
             <br>
             <label for="salary">
                 Salary:
             </label>
-            <input type="number" id="salary" placeholder="salary" name="employe_salary" required>
+            <input type="number" id="salary" placeholder="salary" name="salary" required>
             <br>
 
             <input type="submit" value="Submit">
@@ -84,14 +84,14 @@
     </div>
     <strong>employee details</strong>
     <br>
-    <table id="mytable" width="2000px">
+    <table id="mytable" width="1000px">
         <thead>
             <tr>
-              <th>id</th>
-              <th>employee name</th>
-              <th>age</th>
-              <th>salary</th>
-              <th>Actions</th>
+                <th>id</th>
+                <th>employee name</th>
+                <th>age</th>
+                <th>salary</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody id="tableBody">

@@ -4,6 +4,7 @@ function openAddForm() {
 
 function closeAddForm() {
     document.getElementById("addForm").style.display = "none";
+    
 }
 
 function closeEditForm() {
@@ -46,14 +47,14 @@ async function fetchDataFromServer() {
     }
 
 function deleteEmp(id) {
-    fetch("http://dummy.restapiexample.com/api/v1/employees", {
+    fetch("http://dummy.restapiexample.com/api/v1/delete/id", {
         method: "delete",
         headers: {
             'Content-Type': 'application/json'
         },
-        body: {
-            id: id
-        }
+        //body: {
+          //  id: id
+        //}
     }).then(data => {
         alert(data.statusText);
         fetchDataFromServer();
@@ -73,7 +74,7 @@ function updateEmp() {
     let name = document.getElementById('emp_name').nodeValue;
     let age = document.getElementById('emp_age').nodeValue;
     let salary = document.getElementById('emp_salary').nodeValue;
-    fetch("http://dummy.restapiexample.com/api/v1/employees", {
+    fetch("http://dummy.restapiexample.com/api/v1/update/id", {
         method: "put",
         headers: {
             'Content-Type': 'application/json'
