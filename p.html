@@ -29,12 +29,8 @@
     <br>
     <div class="addForm" id="addForm">
         <button type="button" class="btn" onclick="closeAddForm()">Close</button>
-        <form id="form1" method="POST" action="http://dummy.restapiexample.com/api/v1/create">
-            <label for="id">
-            Id:
-            </label>
-            <input type="number" id="id" placeholder="id" name="id" required>
-            <br>
+        <form id="form1">
+
             <label for="name"> 
             Name:
             </label>
@@ -51,18 +47,16 @@
             <input type="number" id="salary" placeholder="salary" name="salary" required>
             <br>
 
-            <input type="submit" value="Submit">
+            <input type="button" value="Submit" onclick="addEmp()">
 
         </form>
     </div>
     <div id="editForm">
         <button type="button" class="btn" onclick="closeEditForm()">Close</button>
         <form>
-            <label for="emp_id">
-            Id:
-            </label>
-            <input type="number" id="emp_id" placeholder="id" name="employe_id" required>
-            <br>
+
+            <input type="hidden" id="emp_id">
+
             <label for="emp_name"> 
             Name:
             </label>
@@ -79,7 +73,7 @@
             <input type="number" id="emp_salary" placeholder="salary" name="employe_salary" required>
             <br>
 
-            <input type="submit" onclick="updateEmp()">
+            <input type="button" value="Update" onclick="updateEmp()">
         </form>
     </div>
     <strong>employee details</strong>

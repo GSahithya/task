@@ -4,17 +4,16 @@ function openAddForm() {
 
 function closeAddForm() {
     document.getElementById("addForm").style.display = "none";
-    
 }
 
 function closeEditForm() {
     document.getElementById("editForm").style.display = "none";
 }
 
-async function fetchDataFromServer() {
+function fetchDataFromServer() {
     let table = document.getElementById("mytable");
-    var result=await fetch('http://dummy.restapiexample.com/api/v1/employees');
-        var data=await result.json();
+    table.innerHTML = "";
+    fetch('http://dummy.restapiexample.com/api/v1/employees').then((response) => response.json()).then(data => {
         data.data.forEach(employee => {
             let row = document.createElement("tr");
             let id = document.createElement("td");
@@ -44,49 +43,66 @@ async function fetchDataFromServer() {
             row.appendChild(actions);
             table.appendChild(row);
         })
-    }
+    }).catch(err => {
+        console.log(err);
+    })
+}
+
+function addEmp() {
+    let name = document.getElementById('name').value;
+    let age = document.getElementById('age').value;
+    let salary = document.getElementById('salary').value;
+    fetch("http://dummy.restapiexample.com/api/v1/create", {
+        method: "POST",
+        body: {
+            name: name,
+            age: age,
+            salary: salary
+        }
+    }).then(resp => resp.json()).then(data => {
+        console.log(data);
+        closeAddForm();
+        fetchDataFromServer();
+    });
+}
 
 function deleteEmp(id) {
-    fetch("http://dummy.restapiexample.com/api/v1/delete/id", {
-        method: "delete",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        //body: {
-          //  id: id
-        //}
-    }).then(data => {
-        alert(data.statusText);
+    let url = "http://dummy.restapiexample.com/api/v1/delete/" + id;
+    console.log(url)
+    fetch(url, {
+        method: "DELETE",
+    }).then(resp => resp.json()).then(data => {
+        console.log(data);
         fetchDataFromServer();
     });
 }
 
 function editEmp(id, name, age, salary) {
     document.getElementById("editForm").style.display = "block";
-    document.getElementById('emp_id').nodeValue = id;
-    document.getElementById('emp_name').nodeValue = name;
-    document.getElementById('emp_age').nodeValue = age;
-    document.getElementById('emp_salary').nodeValue = salary;
+    document.getElementById('emp_name').value = name;
+    document.getElementById('emp_age').value = age;
+    document.getElementById('emp_salary').value = salary;
+    document.getElementById('emp_id').value = id;
 }
 
 function updateEmp() {
-    let id = document.getElementById('emp_id').nodeValue;
-    let name = document.getElementById('emp_name').nodeValue;
-    let age = document.getElementById('emp_age').nodeValue;
-    let salary = document.getElementById('emp_salary').nodeValue;
-    fetch("http://dummy.restapiexample.com/api/v1/update/id", {
-        method: "put",
+    let id = document.getElementById('emp_id').value;
+    let name = document.getElementById('emp_name').value;
+    let age = document.getElementById('emp_age').value;
+    let salary = document.getElementById('emp_salary').value;
+    let url = "http://dummy.restapiexample.com/api/v1/update/" + id;
+    fetch(url, {
+        method: "PUT",
         headers: {
             'Content-Type': 'application/json'
         },
         body: {
-            id: id,
-            employee_name: name,
-            employee_age: age,
-            employee_salary: salary
+            name: name,
+            age: age,
+            salary: salary
         }
-    }).then(data => {
-        alert(data.statusText);
+    }).then(resp => resp.json()).then(data => {
+        console.log(data);
         closeEditForm();
         fetchDataFromServer();
     });
