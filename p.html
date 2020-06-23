@@ -1,99 +1,103 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
-    <link href="p.css" rel="stylesheet">
-    <style>
-        #addForm,
-        #editForm {
-            display: none;
-        }
-    </style>
-
+    <h1><center>Employee details</center></h1> 
+    <br>  
+   <br> 
+    <link rel="stylesheet" type="text/css" href="p.css">
+  
 </head>
-<!--  whenever page loads this function gets employee data-->
-
-<body onload="fetchDataFromServer()">
-
-    <h1>
-        <center><i>employee details</i></center>
-    </h1>
-    <br>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <strong>add employee detais</strong>
-    <input type="button" value="add" id="bun" onclick="openAddForm()">
-
-    <br>
-    <div class="addForm" id="addForm">
-        <button type="button" class="btn" onclick="closeAddForm()">Close</button>
-        <form id="form1">
-
-            <label for="name"> 
-            Name:
+<body>
+    <h2>add employee details</h2>
+    <button class="but" type="button" onclick="openForm()">ADD</button>
+    <div class="popup">
+        <div class="form-popup" id="popupForm">
+          <form  class="form-container" id='formData'>
+            <h2>Enter employee details..</h2>
+          <!--<div>
+            <label for="id">
+            <strong>ID:</strong>
             </label>
-            <input type="text" id="name" placeholder="full name" name="name" required>
-            <br>
-            <label for="age">
-              Age:
-          </label>
-            <input type="number" id="age" placeholder="age(years)" name="age" required>
-            <br>
-            <label for="salary">
-                Salary:
-            </label>
-            <input type="number" id="salary" placeholder="salary" name="salary" required>
-            <br>
-
-            <input type="button" value="Submit" onclick="addEmp()">
-
-        </form>
-    </div>
-    <div id="editForm">
-        <button type="button" class="btn" onclick="closeEditForm()">Close</button>
-        <form>
-
-            <input type="hidden" id="emp_id">
-
-            <label for="emp_name"> 
-            Name:
+            <input type="number" id="emp_id" placeholder="id" name="employe_id" required>
+            </div>-->
+            <div>
+            <label for="name">
+            <strong>NAME:</strong>
             </label>
             <input type="text" id="emp_name" placeholder="full name" name="employe_name" required>
-            <br>
-            <label for="emp_age">
-              Age:
-          </label>
-            <input type="number" id="emp_age" placeholder="age(years)" name="employe_age" required>
-            <br>
-            <label for="emp_salary">
-                Salary:
+            </div>
+            <div>
+            <label for="salary">
+                <strong>SALARY:</strong>
             </label>
             <input type="number" id="emp_salary" placeholder="salary" name="employe_salary" required>
-            <br>
 
-            <input type="button" value="Update" onclick="updateEmp()">
-        </form>
+            </div>
+            <div1>
+                <label for="age">
+                    <strong>AGE:</strong>
+                </label>
+                    <input type="number" id="emp_age" placeholder="age(years)" name="employe_age" required>
+            </div1>
+            <div>
+                <button type="button" class="btn" onclick="addEmpData()">Add</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Cancle</button>
+            </div>
+          </form>
+        </div>
+       <div class='edit-popup' id='editformData'> 
+         <form  class="edit-container" id='editData'>
+                <h2>Edit employee details..</h2>
+            
+                <div>
+                <label for="name">
+                <strong>NAME:</strong>
+                </label>
+                <input type="text" id="emp_name" placeholder="full name" name="employe_name" required>
+                </div>
+                <div>
+                <label for="salary">
+                    <strong>SALARY:</strong>
+                </label>
+                <input type="number" id="emp_salary" placeholder="salary" name="employe_salary" required>
+
+                </div>
+                <div1>
+                    <label for="age">
+                        <strong>AGE:</strong>
+                    </label>
+                        <input type="number" id="emp_age" placeholder="age(years)" name="employe_age" required>
+                </div1>
+                <div>
+                    <button type="button" class="btn" onclick="editEmpData()">Upate</button>
+                    <button type="button" class="btn cancel" onclick="closeeditForm()">Cancle</button>
+                </div>
+          </form>
+        </div>
+        
+         
     </div>
-    <strong>employee details</strong>
-    <br>
-    <table id="mytable" width="1000px">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>employee name</th>
-                <th>age</th>
-                <th>salary</th>
-                <th>Actions</th>
+    <div class="employee_list">
+        
+        <h2 class="emp_list">Employes:</h2>
+    </div>
+   <div class="bottom"> 
+       <table class="table" id="myTable">
+             <tr class="table_head">
+                <th>ID</th>
+                <th>NAME</th>
+                <th>SALARY</th>
+                <th>AGE</th>
+                <th>OPTIONS</th>
             </tr>
-        </thead>
-        <tbody id="tableBody">
+         
+        </table>
 
-        </tbody>
-    </table>
-    <br>
-    <script src="p.js"></script>
+    </div>
+
+ <script src="p.js"></script>
+
 </body>
-
 </html>

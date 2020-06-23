@@ -1,73 +1,104 @@
-h1{
-  background-color:yellow;
-  }
-h3{
-color:red;
-}
 body{
-  background-image:url('color.jpg');
-  background-repeat: no-repeat;
+    background-image: url('sunset.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  
 }
-  table
-  {
-   border-style: ridge;
-    border-width: 3px;
-    border-color: black;     
-    border-collapse:collapse;
-    width:100%;
+h1{
+   background-color:yellow;
   }
-  td
-  {
-    height:40px;
-    
-    
-  }
-   tr
-  {
-     background-image:url('black.jpg');
-    color:white;
-  }
-  th
-  {
-    background-color:violet;
-    color:black;
-  }
+h2{
+color:white;
+}
 
-#bun{
-   float:center;
-  background-color:blue;
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 6px 4px;
+.employee_list{
+  
+    background-position: center;
+    height: 60px;
+  
 }
-.btn{
-    float:center;
-  background-color:blue;
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 6px 4px;
+.but{
+     float:center;
+    background-color:blue;
+    color:white;
+    font-size: 25px;
+    
+    margin-top: 15px;
+    
 }
-#sub{
-    float:center;
-  background-color:blue;
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 6px 4px;
+button:hover{
+    background-color: #008CBA;
+}
+button:active{
+    background-color: chocolate;
+}
+.emp_list{
+    text-align: left;
+    margin-left:100px ;
+    font-size: 30px;
+}
+.bottom{
+
+    height: 800px;
+    background-image: url("black.jpg");
+    color: whitesmoke;
+
+}
+.item_edt{
+    background-color: blue;
+    color: cornsilk;
+}
+
+.item_delete{
+    background-color: red;
+    color: cornsilk;
+}
+.table{
+    
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-collapse: collapse;
+    width:100%;
+    
+}
+.table_head{
+    color: black;
+    background-color: violet;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+
+}
+.emp_list-0 tr{
+ color: blanchedalmond ;
+}
+.id,.name,.salary,.age{
+    border: 1px solid #ddd;
+    padding:8px;
+}
+
+
+.form-popup{
+    
+    display: none;
+    position: absolute;
+    z-index: 10;
+    width:500px;
+    top: 20%;
+    left:50%;
+    background-color: cornflowerblue;
+    transform: translateX(-50%);
+}
+.edit-popup{
+
+    display: none;
+    position: absolute;
+    z-index: 10;
+    width:500px;
+    top: 20%;
+    left:50%;
+    background-color: cornflowerblue;
+    transform: translateX(-50%);
 }
