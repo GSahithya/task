@@ -1,0 +1,73 @@
+h1{
+  background-color:yellow;
+  }
+h3{
+color:red;
+}
+body{
+  background-image:url('color.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+  table
+  {
+   border-style: ridge;
+    border-width: 3px;
+    border-color: black;     
+    border-collapse:collapse;
+    width:100%;
+  }
+  td
+  {
+    height:40px;
+    
+    
+  }
+   tr
+  {
+     background-image:url('black.jpg');
+    color:white;
+  }
+  th
+  {
+    background-color:violet;
+    color:black;
+  }
+
+#bun{
+   float:center;
+  background-color:blue;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 6px 4px;
+}
+.btn{
+    float:center;
+  background-color:blue;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 6px 4px;
+}
+#sub{
+    float:center;
+  background-color:blue;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 6px 4px;
+}

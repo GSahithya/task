@@ -1,73 +1,105 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-  <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+    <link href="p.css" rel="stylesheet">
+    <style>
+        #addForm,
+        #editForm {
+            display: none;
+        }
+    </style>
 
-	<h1><center><i>employee details</i></center></h1>
-<br>
+</head>
+<!--  whenever page loads this function gets employee data-->
 
+<body onload="fetchDataFromServer()">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
-	<link href="style.css" rel="stylesheet">
+    <h1>
+        <center><i>employee details</i></center>
+    </h1>
+    <br>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <strong>add employee detais</strong>
+    <input type="button" value="add" id="bun" onclick="openAddForm()">
 
-  </head>
-
-  <body>
-
-	<div id="root"></div>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<strong>add employee detais</strong>
-<input type="button" value="add" id="bun" onclick="openForm()">
-<br>
-<div class="formcontainer">
-<div class="formpage" id="page">
-
-<form id="form1">
-<label for="id">
+    <br>
+    <div class="addForm" id="addForm">
+        <button type="button" class="btn" onclick="closeAddForm()">Close</button>
+        <form id="form1" method="POST" action="http://dummy.restapiexample.com/api/v1/employees">
+            <label for="id">
             Id:
             </label>
-            <input type="number" id="emp_id" placeholder="id" name="employe_id" required>
-            <label for="name">
+            <input type="number" id="id" placeholder="id" name="employe_id" required>
+            <br>
+            <label for="name"> 
             Name:
             </label>
-            <input type="text" id="emp_name" placeholder="full name" name="employe_name" required>
+            <input type="text" id="name" placeholder="full name" name="employe_name" required>
+            <br>
+            <label for="age">
+              Age:
+          </label>
+            <input type="number" id="age" placeholder="age(years)" name="employe_age" required>
+            <br>
             <label for="salary">
                 Salary:
             </label>
-            <input type="number" id="emp_salary" placeholder="salary" name="employe_salary" required>
-            <label for="age">
-                Age:
+            <input type="number" id="salary" placeholder="salary" name="employe_salary" required>
+            <br>
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+    <div id="editForm">
+        <button type="button" class="btn" onclick="closeEditForm()">Close</button>
+        <form>
+            <label for="emp_id">
+            Id:
             </label>
-                <input type="number" id="emp_age" placeholder="age(years)" name="employe_age" required>
-            <button type="button" class="btn" onclick="closeForm()">Cancle</button>
-  
-</form> 
-</div>
-</div>
-<strong>employee details</strong>
-<br>
-<br>
-<table id="mytable" width="1000px">
-<tr>
-<th>id</th>
-<th>employee name</th>
-<th>age</th>
-<th>salary</th>
-</tr>
-<tr><td>1</td>
-<td>sahithya</td>
-<td>21</td>
-<td>0</td>
-</tr>
-</table>
-<br>
-<input type="button" id="b" onclick="myfunction()" value="add">
-<button id="b1"  onclick=sample()>delete</button>
-<button id="b2" onclick=details()>edit</button>
-	<script src="scripts.js"></script>
-  </body>
+            <input type="number" id="emp_id" placeholder="id" name="employe_id" required>
+            <br>
+            <label for="emp_name"> 
+            Name:
+            </label>
+            <input type="text" id="emp_name" placeholder="full name" name="employe_name" required>
+            <br>
+            <label for="emp_age">
+              Age:
+          </label>
+            <input type="number" id="emp_age" placeholder="age(years)" name="employe_age" required>
+            <br>
+            <label for="emp_salary">
+                Salary:
+            </label>
+            <input type="number" id="emp_salary" placeholder="salary" name="employe_salary" required>
+            <br>
+
+            <input type="submit" onclick="updateEmp()">
+        </form>
+    </div>
+    <strong>employee details</strong>
+    <br>
+    <table id="mytable" width="2000px">
+        <thead>
+            <tr>
+              <th>id</th>
+              <th>employee name</th>
+              <th>age</th>
+              <th>salary</th>
+              <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+    <br>
+    <script src="p.js"></script>
+</body>
 
 </html>
-			
